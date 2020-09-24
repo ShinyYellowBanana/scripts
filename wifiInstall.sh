@@ -27,5 +27,9 @@ curl https://download.argon40.com/argon1.sh | bash
 
 #BLNKT LED
 
+#Install GIT HUB
+cd Desktop/
+git clone https://github.com/ShinyYellowBanana/scripts.git
+
 #Reboot
 sudo reboot
