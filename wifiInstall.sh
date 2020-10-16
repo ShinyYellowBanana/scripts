@@ -2,6 +2,7 @@
 
 #Print Commands
 set +x
+set -o xtrace
 
 ##Distrobution ID
 DIS_ID1=`cat /etc/os-release | sed -n 's/ID_LIKE=//p'`#Ex. (debian,)
