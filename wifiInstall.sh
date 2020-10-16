@@ -49,6 +49,7 @@ fi
 
 if grep -q "bash-git-prompt" .bashrc; then
     #echo found
+	exit
 else
     echo "if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
 fi
