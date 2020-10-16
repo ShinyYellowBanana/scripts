@@ -62,4 +62,4 @@ cd Desktop/
 git clone https://github.com/ShinyYellowBanana/scripts.git
 
 #Reboot
-sudo reboot
+#sudo reboot
