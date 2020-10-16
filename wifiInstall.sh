@@ -45,12 +45,13 @@ fi
 #BASH GIT PROMPT
 cd ~
 if [ -d "/home/$USER/.bash-git-prompt" ];then
+	echo "Found: Skipping installation"
+else
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 fi
 
 if grep -q "bash-git-prompt" .bashrc; then
-    #echo found
-	exit
+	echo "Found: Skipping edit"
 else
     echo "if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
 fi
