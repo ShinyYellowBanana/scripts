@@ -45,8 +45,8 @@ fi
 
 #BASH GIT PROMPT
 cd ~
-if [ -d "/home/$USER/.bash-git-prompt" ];then
-	echo "Found: Skipping installation"
+if [ -d "/home/$USER/.bash-git-prompt" ]; then
+	echo "Found: Skipping installation of Enhanced GitHub"
 else
 	git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
 fi
@@ -61,8 +61,13 @@ fi
 
 
 #Install Personal GIT HUB
-cd Desktop/
-git clone https://github.com/ShinyYellowBanana/scripts.git
+if [ -d "/home/$USER/Desktop/scripts" ]; then
+	echo "Found: Skipping installation of personal GitHub"
+else
+	cd /home/$USER/Desktop/
+	git clone https://github.com/ShinyYellowBanana/scripts.git
+fi
+
 
 #Reboot
-#sudo reboot
+sudo reboot
