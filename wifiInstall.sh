@@ -19,7 +19,7 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt autoclean -y
 
 	#Install Important Packages
-	sudo apt install xterm
+	sudo apt install xterm -y
 	sudo apt-get install xinput-calibrator
 	sudo apt install bc
 	sudo apt install git
