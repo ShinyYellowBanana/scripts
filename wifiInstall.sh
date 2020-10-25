@@ -65,8 +65,6 @@ else
 	echo "Not Found: Skipping removal of file (wifiInstall.sh)"
 fi
 
-
-
 #Install Personal GIT HUB
 if [ -d "/home/$USER/Desktop/scripts" ]; then
 	echo "Found: Skipping installation of personal GitHub"
