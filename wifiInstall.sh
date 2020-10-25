@@ -26,8 +26,8 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt-get install lsb-core
 	sudo apt install dos2unix
 
-	#BrosTrend1200L Installer
-	sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
+	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
+	echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
 	sudo dpkg --configure -a
 
 	#VNC Install
