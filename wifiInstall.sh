@@ -57,6 +57,13 @@ else
     echo "##GIT HUB ENHANCED VIEW\nif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
 fi
 
+#Remove script ./wifiInstal on Desktop
+if [ -d "/home/$USER/Desktop/wifiInstall.sh" ]; then
+	echo "Found: Removeing file (wifiInstall.sh)"
+	rm -rf /home/$USER/Desktop/wifiInstall.sh
+else
+	echo "Not Found: Skipping removal of file (wifiInstall.sh)"
+fi
 
 
 
