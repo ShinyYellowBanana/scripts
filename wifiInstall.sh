@@ -58,7 +58,7 @@ else
 fi
 
 #Remove script ./wifiInstal on Desktop
-if [ -d "/home/$USER/Desktop/wifiInstall.sh" ]; then
+if [ -f "/home/$USER/Desktop/wifiInstall.sh" ]; then
 	echo "Found: Removeing file (wifiInstall.sh)"
 	rm -rf /home/$USER/Desktop/wifiInstall.sh
 else
