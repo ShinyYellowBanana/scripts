@@ -74,5 +74,8 @@ else
 fi
 
 
+#Sleep
+sleep 15
+
 #Reboot
 sudo reboot
