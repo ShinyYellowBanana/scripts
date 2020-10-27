@@ -57,6 +57,9 @@ else
     echo "##GIT HUB ENHANCED VIEW\nif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
 fi
 
+git config --global user.email "matthew.steven.welch@gmail.com"
+git config --global user.name "Matthew Welch"
+
 #Remove script ./wifiInstal on Desktop
 if [ -f "/home/$USER/Desktop/wifiInstall.sh" ]; then
 	echo "Found: Removeing file (wifiInstall.sh)"
