@@ -44,7 +44,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
 		else
-			echo WARNING: Unsupported Distrobution '$DIS_ID2' please inform master
+			echo WARNING: Unsupported Distrobution `$DIS_ID2` please inform master
 		fi
 		
 		
