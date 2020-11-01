@@ -40,12 +40,13 @@ if [ $DIS_ID1 = 'debian' ];then
 		#FAN HAT(ARGON)
 		if [ $DIS_ID2 = 'Raspbian' ];then
 			curl https://download.argon40.com/argon1.sh | bash
-		fi
-		
-		if [ $DIS_ID2 = 'Ubuntu' ];then
+		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
+		else
+			echo WARNING: Unsupported Distrobution $DIS_ID2(Please inform master)
 		fi
+		
 		
 fi
 #TOUCH SCREEN
