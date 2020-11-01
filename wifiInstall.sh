@@ -1,5 +1,6 @@
 #!/bin/sh
-#git clone https://github.com/ShinyYellowBanana/scripts.git
+##git clone https://github.com/ShinyYellowBanana/scripts.git
+##curl https://raw.githubusercontent.com/ShinyYellowBanana/scriptsiInstall.sh | bash
 
 #Print Commands
 set +x
@@ -7,7 +8,7 @@ set -o xtrace
 
 ##Distrobution ID
 DIS_ID1=`cat /etc/os-release | sed -n 's/ID_LIKE=//p'` ##Ex. (debian,)
-DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian,)
+DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian, Ubuntu)
 USER=`whoami`
 
 if [ $DIS_ID1 = 'debian' ];then
@@ -25,6 +26,8 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt install git
 	sudo apt-get install lsb-core
 	sudo apt install dos2unix
+	sudo apt install curl -y
+	sudo apt install net-tools -y ##Ubuntu
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
 	echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
@@ -38,6 +41,12 @@ if [ $DIS_ID1 = 'debian' ];then
 		if [ $DIS_ID2 = 'Raspbian' ];then
 			curl https://download.argon40.com/argon1.sh | bash
 		fi
+		
+		if [ $DIS_ID2 = 'Ubuntu' ];then
+			sudo apt install openssh-server -y
+			sudo ufw allow ssh
+		fi
+		
 fi
 #TOUCH SCREEN
 
