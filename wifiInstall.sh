@@ -21,11 +21,11 @@ if [ $DIS_ID1 = 'debian' ];then
 
 	#Install Important Packages
 	sudo apt install xterm -y
-	sudo apt-get install xinput-calibrator
-	sudo apt install bc
-	sudo apt install git
-	sudo apt-get install lsb-core
-	sudo apt install dos2unix
+	sudo apt-get install xinput-calibrator -y
+	sudo apt install bc -y
+	sudo apt install git -y
+	sudo apt-get install lsb-core -y
+	sudo apt install dos2unix -y
 	sudo apt install curl -y
 	sudo apt install net-tools -y ##Ubuntu
 
@@ -44,7 +44,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
 		else
-			echo WARNING: Unsupported Distrobution
+			echo WARNING: Unsupported Distrobution.
 		fi
 		
 		
