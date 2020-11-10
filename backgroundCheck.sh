@@ -11,7 +11,7 @@ do
 	IP=`hostname -I | awk '{print $1}'`
 	TIME=`date` 
 	HOSTNAME=`hostname` 
-	while (( $(echo	"$TEMP == 192.168.2.2") )) 
+	while (( $(echo	"$IP == 192.168.2.2") )) 
 	do
 		echo $IP
 		sleep 60 
