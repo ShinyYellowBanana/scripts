@@ -1,4 +1,7 @@
 #!/bin/bash
+
+##while :; do echo `date +"%Y-%m-%d %T"`','`vcgencmd measure_temp | tail -c +6`; sleep 1; done
+
 TEMPALARM=60
 TIME=`date` 
 HOSTNAME=`hostname` 

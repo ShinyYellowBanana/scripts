@@ -15,7 +15,7 @@ if [ $DIS_ID1 = 'debian' ];then
 	
 	#Update/Upgrade/Remove
 	sudo apt update -y
-	sudo apt upgrade -y
+	sudo apt full-upgrade -y
 	sudo apt autoremove -y
 	sudo apt autoclean -y
 
