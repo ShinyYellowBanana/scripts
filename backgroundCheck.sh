@@ -1,21 +1,35 @@
 #!/bin/bash
 
+#GET YOUR IP
+IPADDRESS= `ifconfig | sed -n 2p | sed -n -e 's/^.*inet //p' | sed 's/ .*//'`
+
+
 echo -n "Starting" 
 for i in {1..3} 
 do
 	sleep 0.5 
 	echo -n . 
 done 
-while(true) 
-do 
-	IP=`hostname -I | awk '{print $1}'`
-	TIME=`date` 
-	HOSTNAME=`hostname` 
-	while (( $(echo	"$IP == 192.168.2.2") )) 
-	do
-		echo $IP
-		sleep 60 
-	done 
-	echo "ERROR: Flag Triggered"
+
+echo $IPADDRESS
+
+
+if (( $( curl http://192.168.1.1 | grep -c "incident-title" ) > 0 )) ;
+then 
+	printf "Investigating Issue"; 
+	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
+else 
+	printf "Fully Operational"; 
+fi
 	#curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
-done
+
+
+
+
+
+
+
+
+
+
+
