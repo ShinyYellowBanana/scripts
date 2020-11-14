@@ -11,7 +11,7 @@ do
 	echo -n . 
 done 
 
-echo "$IPADDRESS"
+echo $IPADDRESS
 
 
 if (( $( curl http://192.168.1.1 | grep -c "incident-title" ) > 0 )) ;
