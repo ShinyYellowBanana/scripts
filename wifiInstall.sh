@@ -92,7 +92,8 @@ else
 fi
 
 
-
+cd /home/$USER/Desktop/scripts
+git pull
 
 
 #Sleep
