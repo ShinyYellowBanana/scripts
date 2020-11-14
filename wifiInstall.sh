@@ -1,6 +1,6 @@
 #!/bin/sh
 ##git clone https://github.com/ShinyYellowBanana/scripts.git
-##curl https://raw.githubusercontent.com/ShinyYellowBanana/scriptsiInstall.sh | bash
+##curl https://raw.githubusercontent.com/ShinyYellowBanana/scripts/master/wifiInstall.sh | bash
 
 #Print Commands
 set +x
@@ -37,9 +37,14 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt install realvnc-vnc-server reallvnc-vnc-viewer
 
 
-		#FAN HAT(ARGON)
+		
 		if [ $DIS_ID2 = 'Raspbian' ];then
+			#FAN HAT(ARGON)
 			curl https://download.argon40.com/argon1.sh | bash
+			#Force HDMI on RPi Devices
+			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
+			sudo sed -i "s/#hdmi_safe=1/hdmi_safe=1/" /boot/config.txt
+		
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
@@ -85,6 +90,9 @@ else
 	cd /home/$USER/Desktop/
 	git clone https://github.com/ShinyYellowBanana/scripts.git
 fi
+
+
+
 
 
 #Sleep
