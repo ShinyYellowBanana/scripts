@@ -16,10 +16,10 @@ echo "${IPADDRESS}"
 
 if (( $( curl http://192.168.1.1 | grep -c "incident-title" ) > 0 )) ;
 then 
-	printf "Investigating Issue"; 
+	echo "Investigating Issue"; 
 	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
 else 
-	printf "Fully Operational"; 
+	echo "Fully Operational"; 
 	echo "${IPADDRESS}"
 fi
 	#curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
