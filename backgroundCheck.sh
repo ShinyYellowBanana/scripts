@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #GET YOUR IP
-IPADDRESS=ifconfig | sed -n 2p | sed -n -e 's/^.*inet //p' | sed 's/ .*//'
+IPADDRESS=`ifconfig | sed -n 2p | sed -n -e 's/^.*inet //p' | sed 's/ .*//'`
 
 
 echo -n "Starting" 
