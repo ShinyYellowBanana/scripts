@@ -12,39 +12,22 @@ DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian, Ubun
 USER=`whoami`
 
 if [ $DIS_ID1 = 'debian' ];then
-	
+
+	#Uninstall Packages
+	sudo apt-get --purge remove bluej claws-mail code-the-classics greenfoot-unbundled \
+		minecraft-pi mu-editor python-games \
+		scratch scratch2 scratch3 sonic-pi \
+		smartsim sense-hat nodered -y	
+
+	#Install Important Packages
+	sudo apt install xterm bc git dos2unix curl net-tools -y ##Ubuntu
+	sudo apt-get install xinput-calibrator lsb-core -y
+
 	#Update/Upgrade/Remove
 	sudo apt update -y
 	sudo apt full-upgrade -y
 	sudo apt autoremove -y
 	sudo apt autoclean -y
-
-	#Uninstall Packages
-	sudo apt-get --purge remove bluej -y
-	sudo apt-get --purge remove claws-mail -y
-	sudo apt-get --purge remove code-the-classics -y
-	sudo apt-get --purge remove greenfoot-unbundled -y
-	sudo apt-get --purge remove minecraft-pi -y
-	sudo apt-get --purge remove mu-editor -y
-	sudo apt-get --purge remove python-games -y
-	sudo apt-get --purge remove scratch -y
-	sudo apt-get --purge remove scratch2 -y
-	sudo apt-get --purge remove scratch3 -y
-	sudo apt-get --purge remove sonic-pi -y
-	sudo apt-get --purge remove smartsim -y
-	sudo apt-get --purge remove sense-hat -y
-	sudo apt-get --purge remove nodered -y	
-		
-
-	#Install Important Packages
-	sudo apt install xterm -y
-	sudo apt-get install xinput-calibrator -y
-	sudo apt install bc -y
-	sudo apt install git -y
-	sudo apt-get install lsb-core -y
-	sudo apt install dos2unix -y
-	sudo apt install curl -y
-	sudo apt install net-tools -y ##Ubuntu
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
 	echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
@@ -114,7 +97,7 @@ git pull
 
 
 #Sleep
-sleep 15
+sleep 30
 
 #Reboot
 sudo reboot
