@@ -19,6 +19,23 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt autoremove -y
 	sudo apt autoclean -y
 
+	#Uninstall Packages
+	sudo apt-get --purge remove bluej -y
+	sudo apt-get --purge remove claws-mail -y
+	sudo apt-get --purge remove code-the-classics -y
+	sudo apt-get --purge remove greenfoot-unbundled -y
+	sudo apt-get --purge remove minecraft-pi -y
+	sudo apt-get --purge remove mu-editor -y
+	sudo apt-get --purge remove python-games -y
+	sudo apt-get --purge remove scratch -y
+	sudo apt-get --purge remove scratch2 -y
+	sudo apt-get --purge remove scratch3 -y
+	sudo apt-get --purge remove sonic-pi -y
+	sudo apt-get --purge remove smartsim -y
+	sudo apt-get --purge remove sense-hat -y
+	sudo apt-get --purge remove nodered -y	
+		
+
 	#Install Important Packages
 	sudo apt install xterm -y
 	sudo apt-get install xinput-calibrator -y
