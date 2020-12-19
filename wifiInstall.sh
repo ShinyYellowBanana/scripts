@@ -37,26 +37,28 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt install realvnc-vnc-server reallvnc-vnc-viewer
 
 
-		
 		if [ $DIS_ID2 = 'Raspbian' ];then
 			#FAN HAT(ARGON)
 			curl https://download.argon40.com/argon1.sh | bash
+
+			#BLINKT
+			curl https://get.pimoroni.com/blinkt | bash
+
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
 			sudo sed -i "s/#hdmi_safe=1/hdmi_safe=1/" /boot/config.txt
-		
+
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
 		else
 			echo WARNING: Unsupported Distrobution.
 		fi
-		
-		
 fi
+
+
 #TOUCH SCREEN
 
-#BLNKT LED
 
 #BASH GIT PROMPT
 cd ~
