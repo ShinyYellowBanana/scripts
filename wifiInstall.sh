@@ -20,7 +20,7 @@ if [ $DIS_ID1 = 'debian' ];then
 		smartsim sense-hat nodered -y	
 
 	#Install Important Packages
-	sudo apt install xterm bc git dos2unix curl net-tools -y ##Ubuntu
+	sudo apt install xterm bc git dos2unix curl net-tools arp-scan -y ##Ubuntu
 	sudo apt-get install xinput-calibrator lsb-core -y
 
 	#Update/Upgrade/Remove
@@ -30,9 +30,12 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt autoclean -y
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
-	echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
-	sudo dpkg --configure -a
-
+	#Bus 001 Device 006: ID 0bda:b812 Realtek Semiconductor Corp.
+	if [ lsusb | grep "Realtek Semiconductor Corp." ];then
+	
+		echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
+		sudo dpkg --configure -a
+	fi
 	#VNC Install
 	sudo apt install realvnc-vnc-server reallvnc-vnc-viewer
 
@@ -42,7 +45,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			curl https://download.argon40.com/argon1.sh | bash
 
 			#BLINKT
-			curl https://get.pimoroni.com/blinkt | bash
+			curl https://get.pimoroni.com/blinkt | bash -y
 
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
