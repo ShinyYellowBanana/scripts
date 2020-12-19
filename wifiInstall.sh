@@ -31,8 +31,7 @@ if [ $DIS_ID1 = 'debian' ];then
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
 	#Bus 001 Device 006: ID 0bda:b812 Realtek Semiconductor Corp.
-	if [ lsusb | grep "Realtek Semiconductor Corp." ];then
-	
+	if lsusb | grep -q "Realtek Semiconductor Corp." ;then
 		echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
 		sudo dpkg --configure -a
 	fi
