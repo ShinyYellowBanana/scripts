@@ -3,7 +3,7 @@ import blinkt
 import time
 
 
-people = {"user1" : {"mac" : "4c:cc:6a:fd:43:6e",
+people = {"user1" : {"mac" : "B8:27:EB:DD:88:3B",
                       "color" : (0,60,0),
                       "pixel" : 0,
                       "present" : False},
@@ -29,6 +29,7 @@ def scan_network():
     arp_out = arp_out.split("\n")
     devices = []
     for x in arp_out:
+        print(x)
         if "192.168" in x:
            devices.append(x.split("\t"))
     macs = [str(x[1]) for x in devices]
@@ -40,9 +41,7 @@ if __name__ == "__main__":
     try:
         while True:
             macs = scan_network()
-            print("1")
             for person in people:
-                print(person)
                 person = people[person]
                 if person["mac"] in macs:
                     person["present"] = True
