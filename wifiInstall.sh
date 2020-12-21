@@ -30,11 +30,21 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt autoclean -y
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
-	#Bus 001 Device 006: ID 0bda:b812 Realtek Semiconductor Corp.
+	#ID 0bda:b812 Realtek Semiconductor Corp.
 	if lsusb | grep -q "Realtek Semiconductor Corp." ;then
 		echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
 		sudo dpkg --configure -a
 	fi
+	
+	#GPS
+	#ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+	if lsusb | grep -q "Prolific Technology" ;then
+		sudo apt-get install gpsd gpsd-clients -y
+		sudo systemctl stop gpsd.socket
+		sudo systemctl disable gpsd.socket
+		sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
+	fi
+	
 	#VNC Install
 	sudo apt install realvnc-vnc-server reallvnc-vnc-viewer
 
