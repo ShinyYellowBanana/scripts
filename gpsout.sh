@@ -1,4 +1,9 @@
 #!/bin/bash
+
+sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
+sudo systemctl stop gpsd.socket
+sudo systemctl disable gpsd.socket
+
 exec 2>/dev/null
 # get positions
 gpstmp=/tmp/gps.data
