@@ -83,7 +83,11 @@ fi
 if grep -q "bash-git-prompt" .bashrc; then
 	echo "Found: Skipping edit"
 else
-    echo "##GIT HUB ENHANCED VIEW\nif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
+    echo "##GIT HUB ENHANCED VIEW" >> ~/.bashrc
+	echo "if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then" >> ~/.bashrc
+	echo "	GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
+	echo "	source $HOME/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
+	echo "fi" >> ~/.bashrc
 fi
 
 git config --global user.email "matthew.steven.welch@gmail.com"
