@@ -69,8 +69,9 @@ if [ $DIS_ID1 = 'debian' ];then
 fi
 
 
-#TOUCH SCREEN
-
+##TOUCH SCREEN
+#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
+#prevent reboot
 
 #BASH GIT PROMPT
 cd ~
