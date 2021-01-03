@@ -54,7 +54,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			curl https://download.argon40.com/argon1.sh | bash
 
 			#BLINKT
-			curl https://get.pimoroni.com/blinkt | bash #-y
+			curl https://get.pimoroni.com/blinkt | bash -y
 
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
