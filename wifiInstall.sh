@@ -20,7 +20,7 @@ if [ $DIS_ID1 = 'debian' ];then
 		smartsim sense-hat nodered -y	
 
 	#Install Important Packages
-	sudo apt install xterm bc git dos2unix curl net-tools -y ##Ubuntu
+	sudo apt install xterm bc git dos2unix curl net-tools arp-scan -y ##Ubuntu
 	sudo apt-get install xinput-calibrator lsb-core -y
 
 	#Update/Upgrade/Remove
@@ -30,33 +30,56 @@ if [ $DIS_ID1 = 'debian' ];then
 	sudo apt autoclean -y
 
 	#BrosTrend1200L Installer ##Pass "ENTER" then "q"
-	echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
-	sudo dpkg --configure -a
-
+	#ID 0bda:b812 Realtek Semiconductor Corp.
+	if lsusb | grep -q "Realtek Semiconductor Corp." ;then
+		echo -ne '\n q' | sudo sh -c 'wget deb.trendtechcn.com/installer.sh -O /tmp/installer.sh && sh /tmp/installer.sh'
+		sudo dpkg --configure -a
+	fi
+	
+	#GPS
+	#ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+	if lsusb | grep -q "Prolific Technology" ;then
+		sudo apt-get install gpsd gpsd-clients -y
+		sudo systemctl stop gpsd.socket
+		sudo systemctl disable gpsd.socket
+		sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
+	fi
+	
 	#VNC Install
 	sudo apt install realvnc-vnc-server reallvnc-vnc-viewer
 
 
-		
 		if [ $DIS_ID2 = 'Raspbian' ];then
 			#FAN HAT(ARGON)
 			curl https://download.argon40.com/argon1.sh | bash
+
+			#BLINKT
+			curl https://get.pimoroni.com/blinkt | bash -y
+
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
 			sudo sed -i "s/#hdmi_safe=1/hdmi_safe=1/" /boot/config.txt
-		
+
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
 		else
 			echo WARNING: Unsupported Distrobution.
 		fi
-		
-		
 fi
-#TOUCH SCREEN
 
-#BLNKT LED
+
+
+##Check GPIO
+#RP4 needs manual update.
+cd /tmp
+wget https://project-downloads.drogon.net/wiringpi-latest.deb
+sudo dpkg -i wiringpi-latest.deb
+
+
+##TOUCH SCREEN
+#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
+#prevent reboot
 
 #BASH GIT PROMPT
 cd ~
@@ -69,7 +92,11 @@ fi
 if grep -q "bash-git-prompt" .bashrc; then
 	echo "Found: Skipping edit"
 else
-    echo "##GIT HUB ENHANCED VIEW\nif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then\n    GIT_PROMPT_ONLY_IN_REPO=1\n    source $HOME/.bash-git-prompt/gitprompt.sh\nfi" >> ~/.bashrc
+    echo "##GIT HUB ENHANCED VIEW" >> ~/.bashrc
+	echo "if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then" >> ~/.bashrc
+	echo "	GIT_PROMPT_ONLY_IN_REPO=1" >> ~/.bashrc
+	echo "	source $HOME/.bash-git-prompt/gitprompt.sh" >> ~/.bashrc
+	echo "fi" >> ~/.bashrc
 fi
 
 git config --global user.email "matthew.steven.welch@gmail.com"
