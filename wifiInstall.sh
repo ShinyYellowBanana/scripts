@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ##git clone https://github.com/ShinyYellowBanana/scripts.git
 ##curl https://raw.githubusercontent.com/ShinyYellowBanana/scripts/master/wifiInstall.sh | bash
 
@@ -59,6 +59,17 @@ if [ $DIS_ID1 = 'debian' ];then
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
 			sudo sed -i "s/#hdmi_safe=1/hdmi_safe=1/" /boot/config.txt
+			
+			##Check GPIO
+			#RP4 needs manual update.
+			cd /tmp
+			wget https://project-downloads.drogon.net/wiringpi-latest.deb
+			sudo dpkg -i wiringpi-latest.deb
+
+
+			##TOUCH SCREEN
+			#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
+			#prevent reboot
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
@@ -70,16 +81,7 @@ fi
 
 
 
-##Check GPIO
-#RP4 needs manual update.
-cd /tmp
-wget https://project-downloads.drogon.net/wiringpi-latest.deb
-sudo dpkg -i wiringpi-latest.deb
 
-
-##TOUCH SCREEN
-#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
-#prevent reboot
 
 #BASH GIT PROMPT
 cd ~
@@ -125,6 +127,8 @@ git pull
 
 #Sleep
 sleep 30
+
+##LOOK UP WHIPTAIL
 
 #Reboot
 sudo reboot
