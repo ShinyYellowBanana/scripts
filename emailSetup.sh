@@ -4,8 +4,6 @@
 set +x
 set -o xtrace
 
-$emailaddy
-
 sudo apt install msmtp
 read -p 'Email Address: ' emailaddy
 echo $emailaddy
