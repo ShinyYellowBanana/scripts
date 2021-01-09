@@ -5,9 +5,9 @@ set +x
 set -o xtrace
 
 sudo apt install msmtp
-read -p 'Email Address: ' emailaddy
+read -p 'Email Address(Gmail Only): ' emailaddy
 echo $emailaddy
-read -p 'Email Address: ' appPassword
+read -p 'APP Pasword: ' appPassword
 echo $appPassword
 msmtp --configure $emailaddy > msmtprc
 echo "account default : $emailaddy" >> msmtprc
