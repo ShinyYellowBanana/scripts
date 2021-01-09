@@ -4,8 +4,10 @@
 set +x
 set -o xtrace
 
+$emailaddy
+
 sudo apt install msmtp
-read -p 'Email Address: ' $emailaddy
+read -p 'Email Address: ' emailaddy
 echo $emailaddy
 msmtp --configure $emailaddy > msmtprc
 echo "account default : $emailaddy" >> msmtprc
