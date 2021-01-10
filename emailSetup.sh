@@ -15,4 +15,4 @@ sed -i "s/passwordeval.*/password ${appPassword}/g" msmtprc
 sudo mv msmtprc /etc/
 #APP PASWORD NEEDED FROM GMAIL
 sudo pico /etc/msmtprc
-echo "Email has been set up on device" | msmtp -v $emailaddy
+echo -e "Subject: Setup Complete\r\n\r\nThis is a test mail to confirm the completion of email setup." | msmtp $emailaddy
