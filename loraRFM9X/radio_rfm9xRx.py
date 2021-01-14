@@ -15,21 +15,6 @@ import adafruit_ssd1306
 # Import RFM9x
 import adafruit_rfm9x
 
-# Button A
-btnA = DigitalInOut(board.D5)
-btnA.direction = Direction.INPUT
-btnA.pull = Pull.UP
-
-# Button B
-btnB = DigitalInOut(board.D6)
-btnB.direction = Direction.INPUT
-btnB.pull = Pull.UP
-
-# Button C
-btnC = DigitalInOut(board.D12)
-btnC.direction = Direction.INPUT
-btnC.pull = Pull.UP
-
 # Create the I2C interface.
 i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -69,25 +54,6 @@ while True:
         display.text('RX: ', 0, 0, 1)
         display.text(packet_text, 25, 0, 1)
         time.sleep(1)
-
-    if not btnA.value:
-        # Send Button A
-        display.fill(0)
-        button_a_data = bytes("Button A!\r\n","utf-8")
-        rfm9x.send(button_a_data)
-        display.text('Sent Button A!', 25, 15, 1)
-    elif not btnB.value:
-        # Send Button B
-        display.fill(0)
-        button_b_data = bytes("Button B!\r\n","utf-8")
-        rfm9x.send(button_b_data)
-        display.text('Sent Button B!', 25, 15, 1)
-    elif not btnC.value:
-        # Send Button C
-        display.fill(0)
-        button_c_data = bytes("Button C!\r\n","utf-8")
-        rfm9x.send(button_c_data)
-        display.text('Sent Button C!', 25, 15, 1)
 
 
     display.show()
