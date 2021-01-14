@@ -79,10 +79,6 @@ if [ $DIS_ID1 = 'debian' ];then
 		fi
 fi
 
-
-
-
-
 #BASH GIT PROMPT
 cd ~
 if [ -d "/home/$USER/.bash-git-prompt" ]; then
