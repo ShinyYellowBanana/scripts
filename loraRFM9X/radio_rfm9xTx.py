@@ -38,8 +38,6 @@ prev_packet = None
 
 
 #Varriables
-now = datetime.now()
-current_time = now.strftime("%H:%M:%S")
 
 while True:
     packet = None
@@ -47,19 +45,17 @@ while True:
     display.fill(0)
     display.text('Transmitting', 35, 0, 1)
 
-    # check for packet rx
-    packet = rfm9x.receive()
-    if packet is None:
-        display.show()
-        display.text('- Waiting for PKT -', 15, 20, 1)
-    else:
-        # Send Value
-        display.fill(0)
-        transmit_data = bytes(current_time,"utf-8")
-        rfm9x.send(transmit_data)
-        display.text('Sending time', 25, 15, 1)
+    # Send Value
+    display.fill(0)
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+
+    transmit_data = bytes(current_time,"utf-8")
+    print(current_time)
+    rfm9x.send(transmit_data)
+    display.text('Sending time', 25, 15, 1)
 
 
     display.show()
-    time.sleep(0.5)
+    time.sleep(1.0)
 
