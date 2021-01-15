@@ -15,7 +15,7 @@ while(true);do
 				break
 			else
 				echo "SHUTDOWN"
-				#sudo shutdown now
+				sudo shutdown now
 				exit
 			fi
 		fi
