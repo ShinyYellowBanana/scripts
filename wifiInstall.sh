@@ -74,10 +74,10 @@ if [ $DIS_ID1 = 'debian' ];then
 				cd
 				git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
 				cd /home/$USER/Elecrow-LCD5/Elecrow-LCD5
-				sed '$d' Elecrow-LCD5 #Delete Reboot line
 				pwd
 				sudo chmod +x Elecrow-LCD5
-				sudo ./Elecrow-LCD5
+				sed '$d' Elecrow-LCD5 | bash #Delete Reboot line
+				cd
 			fi
 
 			
@@ -134,6 +134,7 @@ fi
 
 cd /home/$USER/Desktop/scripts
 git pull
+cd
 
 
 #Sleep
