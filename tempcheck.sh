@@ -2,7 +2,7 @@
 
 ##while :; do echo `date +"%Y-%m-%d %T"`','`vcgencmd measure_temp | tail -c +6`; sleep 1; done
 
-TEMPALARM=60
+TEMPALARM=75
 TIME=`date` 
 HOSTNAME=`hostname` 
 
@@ -23,7 +23,8 @@ do
 		echo $TIME 
 		echo $TEMP
 		echo "--------------------" 
-		sleep 60 
+		sleep 1 
 	done 
-	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
+	##curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message="Machine ${HOSTNAME} reached a temperture of ${TEMP}" -d key=textbelt
+	sudo shutdown now
 done
