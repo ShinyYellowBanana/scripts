@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#Set Insall location
+cd
+
 #Update the Raspberry Pi
 sudo apt-get update
 sudo apt-get dist-upgrade
