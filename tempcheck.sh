@@ -23,8 +23,8 @@ do
 		echo $TIME 
 		echo $TEMP
 		echo "--------------------" 
-		sleep 1 
+		sleep 20 
 	done 
-	##curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message="Machine ${HOSTNAME} reached a temperture of ${TEMP}" -d key=textbelt
+	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message="Machine ${HOSTNAME} reached a temperture of ${TEMP}" -d key=textbelt
 	sudo shutdown now
 done
