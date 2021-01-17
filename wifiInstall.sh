@@ -70,7 +70,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			##TOUCH SCREEN
 			if [ -d "/home/$USER//Elcrow-LCD5" ]; then
 				echo "Found: Skipping installation of Touchscreen"
-			else
+			else 
 				cd
 				git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
 				cd /Elecrow-LCD5/Elecrow-LCD5
