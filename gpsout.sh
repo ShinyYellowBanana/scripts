@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 sudo gpsd /dev/ttyUSB0 -F /var/run/gpsd.sock
 sudo systemctl stop gpsd.socket

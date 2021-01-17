@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #GET YOUR IP
 IPADDRESS=`ifconfig | sed -n 2p | sed -n -e 's/^.*inet //p' | sed 's/ .*//'`
