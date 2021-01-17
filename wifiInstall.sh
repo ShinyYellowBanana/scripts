@@ -68,8 +68,11 @@ if [ $DIS_ID1 = 'debian' ];then
 
 
 			##TOUCH SCREEN
-			#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
-			#prevent reboot
+			git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
+			cd /Elcrow-LCD5/Elcrow-LCD5
+			sed '$d' Elecrow-LCD5 #Delete Reboot line
+			sudo chmod +x Elecrow-LCD5
+			sudo ./Elecrow-LCD5
 			
 			#Enable SSH
 			sudo systemctl enable ssh
