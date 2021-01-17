@@ -70,6 +70,11 @@ if [ $DIS_ID1 = 'debian' ];then
 			##TOUCH SCREEN
 			#git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
 			#prevent reboot
+			
+			#Enable SSH
+			sudo systemctl enable ssh
+			sudo systemctl start ssh
+			
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
