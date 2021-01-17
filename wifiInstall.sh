@@ -73,7 +73,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			else 
 				cd
 				git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
-				cd /home/$USER/Elcrow-LCD5/Elecrow-LCD5 
+				cd /home/$USER/Elecrow-LCD5/Elecrow-LCD5
 				sed '$d' Elecrow-LCD5 #Delete Reboot line
 				pwd
 				sudo chmod +x Elecrow-LCD5
