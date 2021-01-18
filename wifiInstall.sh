@@ -87,7 +87,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			
 			##Firmware Update for Raspberry Pi
 			#https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md
-			sudo SKIP_WARNING=1 rpi-update
+			#sudo SKIP_WARNING=1 rpi-update
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
