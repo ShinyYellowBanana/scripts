@@ -81,10 +81,13 @@ if [ $DIS_ID1 = 'debian' ];then
 			fi
 
 			
-			#Enable SSH
+			##Enable SSH
 			sudo systemctl enable ssh
 			sudo systemctl start ssh
 			
+			##Firmware Update for Raspberry Pi
+			#https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md
+			sudo SKIP_WARNING=1 rpi-update
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo apt install openssh-server -y
@@ -135,6 +138,7 @@ fi
 cd /home/$USER/Desktop/scripts
 git pull
 cd
+
 
 
 #Sleep
