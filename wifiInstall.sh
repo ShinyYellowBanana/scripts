@@ -6,6 +6,9 @@
 set +x
 set -o xtrace
 
+#Ensure execute from git branch
+cd /home/$USER/Desktop/scripts
+
 ##Distrobution ID
 DIS_ID1=`cat /etc/os-release | sed -n 's/ID_LIKE=//p'` ##Ex. (debian,)
 DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian, Ubuntu)
@@ -15,12 +18,16 @@ LATEST_BUILD=`git rev-list --count origin/HEAD`
 BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
 HOSTNAME=`hostname`
 
+#Check if build is behind
 if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
 	git pull
 	exit
 fi
 
 if [ $DIS_ID1 = 'debian' ];then
+
+	#Move To Home Directory
+	cd
 
 	#Uninstall Packages
 	sudo apt-get --purge remove bluej claws-mail code-the-classics greenfoot-unbundled \
