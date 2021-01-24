@@ -6,23 +6,30 @@
 set +x
 set -o xtrace
 
-#Ensure execute from git branch
-cd /home/$USER/Desktop/scripts
-
 ##Distrobution ID
 DIS_ID1=`cat /etc/os-release | sed -n 's/ID_LIKE=//p'` ##Ex. (debian,)
 DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian, Ubuntu)
 USER=`whoami`
+
+#Ensure execute from git branch
+
+if [ -d "/home/$USER/Desktop/scripts" ]; then
+	#NOT FOUND
+	echo "Not Found!"
+else 
+	echo "Found: scripts"
+	#Check if build is behind
+	cd /home/$USER/Desktop/scripts
+	if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
+		git pull
+		exit
+	fi
+fi
+
 CURRENT_BUILD=`git rev-list --count HEAD` ##Build Number
 LATEST_BUILD=`git rev-list --count origin/HEAD`
 BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
 HOSTNAME=`hostname`
-
-#Check if build is behind
-if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
-	git pull
-	exit
-fi
 
 if [ $DIS_ID1 = 'debian' ];then
 
