@@ -15,7 +15,7 @@ LATEST_BUILD=`git rev-list --count origin/HEAD`
 BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
 HOSTNAME=`hostname`
 
-if [$CURRENT_BUILD -ne $LATEST_BUILD];then
+if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
 	git pull
 	exit
 fi
