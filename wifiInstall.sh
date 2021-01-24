@@ -78,8 +78,6 @@ if [ $DIS_ID1 = 'debian' ];then
 
 			##TOUCH SCREEN
 			if [ -d "/home/$USER/Elcrow-LCD5" ]; then
-				echo "Found: Skipping installation of Touchscreen"
-			else 
 				cd
 				git clone https://github.com/Elecrow-keen/Elecrow-LCD5.git
 				cd /home/$USER/Elecrow-LCD5/Elecrow-LCD5
@@ -87,6 +85,8 @@ if [ $DIS_ID1 = 'debian' ];then
 				sudo chmod +x Elecrow-LCD5
 				sed '$d' Elecrow-LCD5 | bash #Delete Reboot line
 				cd
+			else 
+				echo "Found: Skipping installation of Touchscreen"
 			fi
 
 			
