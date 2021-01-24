@@ -15,9 +15,7 @@ HOSTNAME=`hostname`
 #Ensure execute from git branch
 
 if [ -d "/home/$USER/Desktop/scripts" ]; then
-	#NOT FOUND
-	echo "Not Found!"
-else 
+	#Exists
 	echo "Found: scripts"
 	#Check if build is behind
 	cd /home/$USER/Desktop/scripts
@@ -28,6 +26,9 @@ else
 		git pull
 		exit
 	fi
+else 
+	#Skip git pull because update is found
+	echo "Found!"
 fi
 
 
