@@ -49,7 +49,7 @@ if [ $DIS_ID1 = 'debian' ];then
 	fi
 	
 	#VNC Install
-	sudo apt install realvnc-vnc-server realvnc-vnc-viewer
+	sudo apt install realvnc-vnc-server realvnc-vnc-viewer -y
 
 
 		if [ $DIS_ID2 = 'Raspbian' ];then
