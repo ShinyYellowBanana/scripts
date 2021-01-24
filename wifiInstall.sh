@@ -158,13 +158,6 @@ else
 	git clone https://github.com/ShinyYellowBanana/scripts.git
 fi
 
-
-cd /home/$USER/Desktop/scripts
-git pull
-cd
-
-
-
 #Sleep
 sleep 30
 
