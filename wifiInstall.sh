@@ -10,6 +10,7 @@ set -o xtrace
 DIS_ID1=`cat /etc/os-release | sed -n 's/ID_LIKE=//p'` ##Ex. (debian,)
 DIS_ID2=`lsb_release -i | sed -n 's/Distributor ID:\t//p'` ##Ex. (Raspbian, Ubuntu)
 USER=`whoami`
+HOSTNAME=`hostname`
 
 #Ensure execute from git branch
 
@@ -20,16 +21,15 @@ else
 	echo "Found: scripts"
 	#Check if build is behind
 	cd /home/$USER/Desktop/scripts
+	CURRENT_BUILD=`git rev-list --count HEAD` ##Build Number
+	LATEST_BUILD=`git rev-list --count origin/HEAD`
+	BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
 	if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
 		git pull
 		exit
 	fi
 fi
 
-CURRENT_BUILD=`git rev-list --count HEAD` ##Build Number
-LATEST_BUILD=`git rev-list --count origin/HEAD`
-BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
-HOSTNAME=`hostname`
 
 if [ $DIS_ID1 = 'debian' ];then
 
