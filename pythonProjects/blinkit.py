@@ -24,7 +24,7 @@ def show_presence(people):
     blinkt.show()
 
 def scan_network():
-    arp_out = check_output(["sudo", "arp-scan", "-l"])
+    arp_out = check_output(["sudo", "arp-scan", "192.168.0.0-192.168.5.0"])
     arp_out =arp_out.decode()
     arp_out = arp_out.split("\n")
     devices = []
