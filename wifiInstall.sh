@@ -19,6 +19,7 @@ if [ -d "/home/$USER/Desktop/scripts" ]; then
 	echo "Found: scripts"
 	#Check if build is behind
 	cd /home/$USER/Desktop/scripts
+	git status
 	CURRENT_BUILD=`git rev-list --count HEAD` ##Build Number
 	LATEST_BUILD=`git rev-list --count origin/HEAD`
 	BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
