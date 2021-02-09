@@ -45,7 +45,7 @@ if [ $DIS_ID1 = 'debian' ];then
 		smartsim sense-hat nodered -y	
 
 	#Install Important Packages
-	sudo apt install xterm bc git dos2unix curl net-tools arp-scan htop -y ##Ubuntu
+	sudo apt install xterm bc git dos2unix curl net-tools arp-scan htop nmap -y ##Ubuntu
 	sudo apt-get install xinput-calibrator lsb-core -y
 
 	#Update/Upgrade/Remove
