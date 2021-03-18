@@ -46,6 +46,7 @@ if [ $DIS_ID1 = 'debian' ];then
 
 	#Install Important Packages
 	sudo apt install xterm bc git dos2unix curl net-tools arp-scan htop nmap -y ##Ubuntu
+
 	sudo apt-get install xinput-calibrator lsb-core -y
 
 	#Update/Upgrade/Remove
@@ -80,7 +81,7 @@ if [ $DIS_ID1 = 'debian' ];then
 
 			#BLINKT
 			#curl https://get.pimoroni.com/blinkt | bash  ##or
-			sudo apt-get install python3-blinkt
+			sudo apt-get install python3-blinkt libwidevinecdm0 
 			
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
