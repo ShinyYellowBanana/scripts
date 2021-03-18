@@ -117,6 +117,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			#sudo SKIP_WARNING=1 rpi-update
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
+			sudo adduser $USER sudo
 			sudo apt install openssh-server -y
 			sudo ufw allow ssh
 		else
