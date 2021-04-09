@@ -110,7 +110,7 @@ if [ $DIS_ID1 = 'debian' ];then
 			
 			##Enable SSH
 			sudo systemctl enable ssh
-			sudo systemctl start ssh
+			sudo systemctl start ssh #Stopped here on fresh install?
 			
 			##Firmware Update for Raspberry Pi
 			#https://www.raspberrypi.org/documentation/raspbian/applications/rpi-update.md
