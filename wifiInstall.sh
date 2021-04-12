@@ -81,7 +81,7 @@ if [ $DIS_ID1 = 'debian' ];then
 
 			#BLINKT
 			#curl https://get.pimoroni.com/blinkt | bash  ##or
-			sudo apt-get install python3-blinkt libwidevinecdm0 
+			sudo apt-get install python3-blinkt libwidevinecdm0 -y
 			
 			#Force HDMI on RPi Devices
 			sudo sed -i "s/#hdmi_force_hotplug=1/hdmi_force_hotplug=1/" /boot/config.txt
