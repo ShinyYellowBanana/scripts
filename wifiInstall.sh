@@ -119,6 +119,7 @@ if [ $DIS_ID1 = 'debian' ];then
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo adduser $USER sudo
 			sudo apt install openssh-server -y
+			sudo apt install nfs-common
 			sudo ufw allow ssh
 		else
 			echo WARNING: Unsupported Distrobution.
