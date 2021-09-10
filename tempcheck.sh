@@ -28,3 +28,9 @@ do
 	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message="Machine ${HOSTNAME} reached a temperture of ${TEMP}" -d key=textbelt
 	sudo shutdown now
 done
+
+#This only works for Raspbian
+
+#For UbuntuW
+#sudo apt install hddtemp lm-sensors
+#(parse) sensors
