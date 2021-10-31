@@ -1,5 +1,5 @@
 #!/bin/bash
-##git clone https://github.com/ShinyYellowBanana/scripts.git
+##git clone git@github.com:ShinyYellowBanana/scripts.git
 ##curl https://raw.githubusercontent.com/ShinyYellowBanana/scripts/master/wifiInstall.sh | bash
 
 #Print Commands
@@ -160,7 +160,7 @@ if [ -d "/home/$USER/Desktop/scripts" ]; then
 	echo "Found: Skipping installation of personal GitHub"
 else
 	cd /home/$USER/Desktop/
-	git clone https://github.com/ShinyYellowBanana/scripts.git
+	git clone git@github.com:ShinyYellowBanana/scripts.git
 fi
 
 #Sleep
