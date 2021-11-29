@@ -10,3 +10,4 @@ sudo apt-get upgrade -y
 systemctl start docker.service
 docker info
 docker run hello-world
+sudo rm -rf get-docker.sh
