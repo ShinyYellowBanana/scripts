@@ -34,7 +34,7 @@ else
 fi
 
 
-if [ $DIS_ID1 = 'debian' ] | [ $DIS_ID1A = 'debian' ] ;then
+if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 
 	#Move To Home Directory
 	cd ~
