@@ -121,6 +121,7 @@ if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 			sudo adduser $USER sudo
 			sudo apt install openssh-server -y
 			sudo apt install nfs-common
+			sudo apt install hddtemp lm-sensors
 			sudo ufw allow ssh
 		else
 			echo WARNING: Unsupported Distrobution.
