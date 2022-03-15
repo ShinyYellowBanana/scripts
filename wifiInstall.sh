@@ -119,9 +119,7 @@ if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
 			sudo adduser $USER sudo
-			sudo apt install openssh-server -y
-			sudo apt install nfs-common
-			sudo apt install hddtemp lm-sensors
+			sudo apt install hddtemp lm-sensors nfs-common openssh-server -y
 			sudo ufw allow ssh
 		else
 			echo WARNING: Unsupported Distrobution.
@@ -148,14 +146,6 @@ fi
 
 git config --global user.email "matthew.steven.welch@gmail.com"
 git config --global user.name "Matthew Welch"
-
-#Remove script ./wifiInstal on Desktop
-if [ -f "/home/$USER/Desktop/wifiInstall.sh" ]; then
-	echo "Found: Removeing file (wifiInstall.sh)"
-	rm -rf /home/$USER/Desktop/wifiInstall.sh
-else
-	echo "Not Found: Skipping removal of file (wifiInstall.sh)"
-fi
 
 #Install Personal GIT HUB
 if [ -d "/home/$USER/Desktop/scripts" ]; then
