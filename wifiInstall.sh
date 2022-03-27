@@ -43,7 +43,7 @@ if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 	sudo apt-get --purge remove bluej claws-mail code-the-classics greenfoot-unbundled \
 		minecraft-pi mu-editor python-games \
 		scratch scratch2 scratch3 sonic-pi \
-		smartsim sense-hat nodered -y	
+		smartsim sense-hat nodered netcat -y	
 
 	#Install Important Packages
 	sudo apt install xterm bc git dos2unix curl net-tools arp-scan htop nmap -y ##Ubuntu
