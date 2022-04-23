@@ -6,8 +6,8 @@ Proxmox=18:C0:4D:90:49:B9
 countdown=0
 
 echo "Which PC to wake?"
-echo "a) TrueNAS"
-echo "b) Proxmox"
+echo "a) TrueNAS (192.168.2.10)"
+echo "b) Proxmox (192.168.2.8)"
 echo "c) quit"
 read input1
 case $input1 in
