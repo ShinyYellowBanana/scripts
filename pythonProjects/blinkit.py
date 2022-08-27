@@ -3,7 +3,7 @@ import blinkt
 import time
 
 
-people = {"user1" : {"mac" : "4c:cc:6a:fd:43:6e",
+people = {"user1" : {"mac" : "18:c0:4d:a3:5b:20",
                       "color" : (0,60,0),
                       "pixel" : 0,
                       "present" : False},
@@ -20,18 +20,20 @@ def show_presence(people):
         if present:
             blinkt.set_pixel(pixel,r,g,b)
         else:
-            blinkt.set_pixel(pixel,0,0,0)
+            blinkt.set_pixel(pixel,60,0,0)
     blinkt.show()
 
 def scan_network():
-    arp_out = check_output(["sudo", "arp-scan", "192.168.0.0-192.168.5.0"])
+    arp_out = check_output(["sudo", "arp-scan", "-lg"])
     arp_out =arp_out.decode()
     arp_out = arp_out.split("\n")
     devices = []
     for x in arp_out:
         if "192.168" in x:
            devices.append(x.split("\t"))
+    print(devices)
     macs = [str(x[1]) for x in devices]
+    print(macs)
     return(macs)
 
 if __name__ == "__main__":
@@ -40,7 +42,6 @@ if __name__ == "__main__":
     try:
         while True:
             macs = scan_network()
-            print("1")
             for person in people:
                 print(person)
                 person = people[person]
@@ -51,6 +52,6 @@ if __name__ == "__main__":
             show_presence(people)
             time.sleep(1)
     except Exception as e:
-        print(str(e))
+        print(f"ERROR: {str(e)}")
         blinkt.clear()
         blinkt.show()

@@ -78,7 +78,7 @@ if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 
 		if [ $DIS_ID2 = 'Raspbian' ];then
 			#FAN HAT(ARGON)
-			curl https://download.argon40.com/argon1.sh | bash
+			curl https://download.argon40.com/argonfanhat.sh | bash
 
 			#BLINKT
 			#curl https://get.pimoroni.com/blinkt | bash  ##or
