@@ -28,9 +28,19 @@ if [ -d "/home/$USER/Desktop/scripts" ]; then
 		git pull
 		exit
 	fi
-else 
-	#Skip git pull because update is found
-	echo "Found!"
+elif [ -d "/home/$USER/scripts" ]; then
+	cd /home/$USER/scripts
+        git status
+        CURRENT_BUILD=`git rev-list --count HEAD` ##Build Number
+        LATEST_BUILD=`git rev-list --count origin/HEAD`
+        BRANCH=`git rev-parse --abbrev-ref HEAD` ##Branch Name
+        if [ "$CURRENT_BUILD" -ne "$LATEST_BUILD" ];then
+                git pull
+                exit
+        fi
+else
+        cd /home/$USER/Desktop/
+        git clone git@github.com:ShinyYellowBanana/scripts.git -y
 fi
 
 
@@ -147,18 +157,8 @@ fi
 git config --global user.email "matthew.steven.welch@gmail.com"
 git config --global user.name "Matthew Welch"
 
-#Install Personal GIT HUB
-if [ -d "/home/$USER/Desktop/scripts" ]; then
-	echo "Found: Skipping installation of personal GitHub"
-else
-	cd /home/$USER/Desktop/
-	git clone git@github.com:ShinyYellowBanana/scripts.git
-fi
-
 #Sleep
 sleep 30
-
-##LOOK UP WHIPTAIL
 
 #Reboot
 sudo reboot
