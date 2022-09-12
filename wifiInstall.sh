@@ -41,7 +41,7 @@ elif [ -d "/home/$USER/scripts" ]; then
 else
 	ssh-keygen -F github.com || ssh-keyscan github.com >> ~/.ssh/known_hosts
         cd /home/$USER/Desktop/
-        git clone git@github.com:ShinyYellowBanana/scripts.git -y
+        git clone git@github.com:ShinyYellowBanana/scripts.git
 fi
 
 
