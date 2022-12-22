@@ -26,7 +26,7 @@ do
 		sleep 20 
 	done 
 	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message="Machine ${HOSTNAME} reached a temperture of ${TEMP}" -d key=textbelt
-	sudo shutdown now
+	#sudo shutdown now
 done
 
 #This only works for Raspbian
