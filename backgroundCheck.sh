@@ -14,10 +14,10 @@ done
 echo "${IPADDRESS}"
 
 
-if (( $( curl http://192.168.1.1 | grep -c "incident-title" ) > 0 )) ;
+if (( $( curl -k https://192.168.1.1 | grep -c "floorplanDeps" ) != 1 )) ;
 then 
 	echo "Investigating Issue"; 
-	curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
+	#curl -X POST https://textbelt.com/text --data-urlencode phone='7726315244' --data-urlencode message='Machine ${HOSTNAME} reached a temperture of ${TEMP}' -d key=textbelt
 else 
 	echo "Fully Operational"; 
 	echo "${IPADDRESS}"
