@@ -5,12 +5,6 @@ import fcntl
 target_website = "www.example.com"
 target_port = 80
 
-# look up the IP addresses of the target website
-target_ips = []
-addr_info = socket.getaddrinfo(target_website, target_port)
-for addr in addr_info:
-    target_ips.append(addr[4][0])
-
 # create a raw socket
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_TCP)
 
@@ -41,9 +35,12 @@ while True:
     # convert the source port and destination port to integers
     src_port = int.from_bytes(src_port, byteorder="big")
     dst_port = int.from_bytes(dst_port, byteorder="big")
+    if dst_port != 22:
+        print("SRC:\t",src_port)
+        print("DST:\t",dst_port)
 
     # check if the packet is going to the target website and port
-    if dst_ip in target_ips and dst_port == target_port:
+    if dst_ip == target_website and dst_port == target_port:
         print("Device with IP address {} is going to {} on port {}".format(src_ip, dst_ip, dst_port))
 
 # close the socket
