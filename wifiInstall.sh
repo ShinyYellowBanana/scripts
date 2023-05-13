@@ -129,6 +129,7 @@ if [ $DIS_ID1 = 'debian' ] || [ $DIS_ID1A = 'debian' ] ;then
 			#sudo SKIP_WARNING=1 rpi-update
 
 		elif [ $DIS_ID2 = 'Ubuntu' ];then
+		    timedatectl set-timezone 'America/New_York'
 			sudo adduser $USER sudo
 			sudo apt install hddtemp lm-sensors nfs-common openssh-server -y
 			sudo ufw allow ssh
